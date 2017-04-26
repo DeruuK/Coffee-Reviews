@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Coffee review website </title>
+	</head>
+	<body ng-app="myApp.view1">
+		<script src="Coffees.js"></script>
+		<div class="container" ng-controller = 'View1Ctrl'>
+            <div class="input-group">
+                <span class="input-group-addon">Search</span>
+                <input type="text" class="form-control" ng-model="name" />
+            </div>
+			<h3 class="info"> Coffees: </h3> 
+			<table class="table table-striped">
+				<tr>
+					<th>Reviews </th>
+					<th>Brand </th>
+    				<th>Coffee </th> 
+    				<th>Country </th>
+				</tr>						
+				<tr ng-repeat="coffee in coffees | filter:name | orderBy:'name'">
+                    <td> <a href="#!/coffee/{{coffee.id}}"> Reviews </a> </td>
+                    <td> {{ coffee.brand }} </td>
+                    <td> {{ coffee.name }}  </td>
+                    <td> {{ coffee.country }} </td>
+                </tr>
+			</table>
+				
+		</div>
+	</body>
+</html>

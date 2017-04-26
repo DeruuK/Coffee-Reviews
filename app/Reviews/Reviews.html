@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Coffee review website </title>
+    <style>
+      .coffeeimg{
+        display: block;
+        margin: 10px auto;
+        width: 50%;
+      }
+    </style>
+	</head>
+	<body ng-app="myApp.view2">
+		<script src="Reviews.js"></script>
+		<div class="container" ng-controller = 'View2Ctrl'>
+      <p><a href="#!/coffee">Mainpage</a></p><hr>
+			<h3> Reviews for {{selectcoffee.name}}:</h3> 
+			
+			<table class="table table-striped">
+				<tr>
+					<th>Reviewer </th>
+					<th>Comment </th>
+    				<th>Rating </th> 
+				</tr>					
+				<tr ng-repeat="review in selectcoffee.reviews">
+					<td> {{ review.reviewer }} </td>
+					<td> {{ review.comment }}  </td>
+					<td> {{ review.rating }}/10 </td>
+				</tr>
+				
+			</table>
+      <img ng-src="{{selectcoffee.id}}.jpg" ng-alt="{{selectcoffee.id}}" class="coffeeimg"/>
+      
+		</div>
+
+	</body>
+</html>
